@@ -14,9 +14,9 @@ use crate::circom::circuit::{CircuitJson, R1CS};
 use crate::circom::file::{from_reader, read_field};
 use crate::FileLocation;
 use ff::PrimeField;
-use pasta_curves::group::Group;
+use halo2curves::group::Group;
 
-type G1 = pasta_curves::pallas::Point;
+type G1 = halo2curves::bn256::G1;
 
 pub fn generate_witness_from_bin<Fr: PrimeField>(
     witness_bin: &Path,
@@ -36,7 +36,7 @@ pub fn generate_witness_from_bin<Fr: PrimeField>(
         print!("stdout: {}", str::from_utf8(&output.stdout).unwrap());
         print!("stderr: {}", str::from_utf8(&output.stderr).unwrap());
     }
-    let _ = fs::remove_file(witness_generator_input);
+    //let _ = fs::remove_file(witness_generator_input);
     load_witness_from_file(witness_output)
 }
 

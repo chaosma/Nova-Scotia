@@ -7,15 +7,15 @@ edition = "2021"
 
 [dependencies]
 anyhow = "1.0.65"
-bellperson = { version = "0.24", default-features = false }
+bellperson = { version = "0.25", default-features = false }
 byteorder = "1.4.3"
-ff = { version = "0.12.0", features = ["derive"]}
+ff = { version = "0.13.0", features = ["derive"]}
 hex-literal = "0.3.4"
 itertools = "0.9.0"
-nova-snark = { version = "0.15.0" }
+nova-snark = { path = "/Users/chao/opensource/nova/nova" }
 num-bigint = { version = "0.4", features = ["serde", "rand"] }
 num-traits = "0.2.15"
-pasta_curves = { version = "0.5.2", features = ["repr-c", "serde"], package = "fil_pasta_curves" }
+halo2curves = { git = "https://github.com/chaosma/halo2curves", branch = "feature/curve-grumpkin" }
 serde = "1.0"
 serde_json = "1.0.85"
 

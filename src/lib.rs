@@ -25,11 +25,11 @@ use crate::circom::wasm::generate_witness_from_wasm;
 
 pub mod circom;
 
-pub type G1 = pasta_curves::pallas::Point;
+pub type G1 = halo2curves::bn256::G1;
 pub type F1 = <G1 as Group>::Scalar;
 pub type EE1 = nova_snark::provider::ipa_pc::EvaluationEngine<G1>;
 pub type S1 = nova_snark::spartan::RelaxedR1CSSNARK<G1, EE1>;
-pub type G2 = pasta_curves::vesta::Point;
+pub type G2 = halo2curves::grumpkin::G1;
 pub type F2 = <G2 as Group>::Scalar;
 pub type EE2 = nova_snark::provider::ipa_pc::EvaluationEngine<G2>;
 pub type S2 = nova_snark::spartan::RelaxedR1CSSNARK<G2, EE2>;

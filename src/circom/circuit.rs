@@ -126,9 +126,10 @@ impl<'a, Fr: PrimeField> CircomCircuit<Fr> {
         for (i, constraint) in self.r1cs.constraints.iter().enumerate() {
             cs.enforce(
                 || format!("constraint {}", i),
-                |_| make_lc(constraint.0.clone()),
-                |_| make_lc(constraint.1.clone()),
-                |_| make_lc(constraint.2.clone()),
+                |_| make_lc(constraint.0.clone()), // chao: constraint i: a = sum_{j} A[i,j]z[j], i.e.
+                                                   //  (j, A[i,j]): (usize, Fr) 
+                |_| make_lc(constraint.1.clone()), // b
+                |_| make_lc(constraint.2.clone()), // c
             );
         }
 
