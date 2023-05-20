@@ -75,6 +75,7 @@ fn main() {
     );
     assert!(res.is_ok());
 
+    /*
     // produce a compressed SNARK
     println!("Generating a CompressedSNARK using Spartan with IPA-PC...");
     let start = Instant::now();
@@ -102,4 +103,5 @@ fn main() {
         start.elapsed()
     );
     assert!(res.is_ok());
+    */
 }

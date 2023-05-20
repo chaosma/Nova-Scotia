@@ -200,4 +200,4 @@ template Main(BLOCK_COUNT) {
 }
 
 // component main { public [step_in] } = Main(1);
-component main { public [step_in] } = Main(2);
+component main { public [step_in] } = Main(3);

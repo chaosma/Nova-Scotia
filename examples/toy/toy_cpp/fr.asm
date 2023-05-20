@@ -65,6 +65,10 @@
 
 
 
+
+
+
+
 ;;;;;;;;;;;;;;;;;;;;;;
 ; copy
 ;;;;;;;;;;;;;;;;;;;;;;
@@ -284,15 +288,12 @@ Fr_long:
         jnc     Fr_longNormal
 Fr_longMontgomery:
 
-        mov  r8, rdi
         sub  rsp, 40
-        mov  rdi, rsp
-        push rdx
-        push r8
-        call Fr_toNormal
+        push rsi
         mov  rsi, rdi
-        pop  rdi
-        pop  rdx
+        mov  rdi, rsp
+        call Fr_toNormal
+        pop  rsi
 
 
 Fr_longNormal:
@@ -6545,7 +6546,7 @@ rawShr:
         cmp rdx, 0
         je Fr_rawCopy
 
-        cmp rdx, 255
+        cmp rdx, 254
         jae Fr_rawZero
 
 rawShr_nz:
@@ -6745,7 +6746,7 @@ rawShl:
         cmp rdx, 0
         je Fr_rawCopy
         
-        cmp rdx, 255
+        cmp rdx, 254
         jae Fr_rawZero
 
         mov r8, rdx
@@ -7098,7 +7099,7 @@ Fr_shr:
 
 tmp_113:
         mov rcx, [rdx + 8]
-        cmp rcx, 255
+        cmp rcx, 254
         jae  tmp_114
         xor rax, rax
         
@@ -7117,7 +7118,7 @@ tmp_113:
 tmp_114:
         mov rcx, [q]
         sub rcx, [rdx+8]
-        cmp rcx, 255
+        cmp rcx, 254
         jae  setzero
         mov rax, [q]
         sub rax, [rdx+8]
@@ -7140,13 +7141,13 @@ tmp_114:
 tmp_112:
         cmp ecx, 0
         jl  tmp_115
-        cmp ecx, 255
+        cmp ecx, 254
         jae  setzero
         movsx rdx, ecx 
         jmp do_shr
 tmp_115:
         neg ecx
-        cmp ecx, 255
+        cmp ecx, 254
         jae  setzero
         movsx rdx, ecx 
         jmp do_shl
@@ -7197,7 +7198,7 @@ Fr_shl:
 
 tmp_117:
         mov rcx, [rdx + 8]
-        cmp rcx, 255
+        cmp rcx, 254
         jae  tmp_118
         xor rax, rax
         
@@ -7216,7 +7217,7 @@ tmp_117:
 tmp_118:
         mov rcx, [q]
         sub rcx, [rdx+8]
-        cmp rcx, 255
+        cmp rcx, 254
         jae  setzero
         mov rax, [q]
         sub rax, [rdx+8]
@@ -7239,13 +7240,13 @@ tmp_118:
 tmp_116:
         cmp ecx, 0
         jl  tmp_119
-        cmp ecx, 255
+        cmp ecx, 254
         jae  setzero
         movsx rdx, ecx 
         jmp do_shl
 tmp_119:
         neg ecx
-        cmp ecx, 255
+        cmp ecx, 254
         jae  setzero
         movsx rdx, ecx 
         jmp do_shr
@@ -8780,14 +8781,14 @@ Fr_q:
         dd      0
         dd      0x80000000
 Fr_rawq:
-q       dq      0x8c46eb2100000001,0x224698fc0994a8dd,0x0000000000000000,0x4000000000000000
-half    dq      0xc623759080000000,0x11234c7e04ca546e,0x0000000000000000,0x2000000000000000
-R2      dq      0xfc9678ff0000000f,0x67bb433d891a16e3,0x7fae231004ccf590,0x096d41af7ccfdaa9
+q       dq      0x43e1f593f0000001,0x2833e84879b97091,0xb85045b68181585d,0x30644e72e131a029
+half    dq      0xa1f0fac9f8000000,0x9419f4243cdcb848,0xdc2822db40c0ac2e,0x183227397098d014
+R2      dq      0x1bb8e645ae216da7,0x53fe3ab1e35c59e3,0x8c49833d53bb8085,0x0216d0b17f4e44a5
 Fr_R3:
         dd      0
         dd      0x80000000
 Fr_rawR3:
-R3      dq      0x008b421c249dae4c,0xe13bda50dba41326,0x88fececb8e15cb63,0x07dd97a06e6792c8
-lboMask dq      0x7fffffffffffffff
-np      dq      0x8c46eb20ffffffff
+R3      dq      0x5e94d8e1b4bf0040,0x2a489cbe1cfbb6b8,0x893cc664a19fcfed,0x0cf8594b7fcc657c
+lboMask dq      0x3fffffffffffffff
+np      dq      0xc2e1f593efffffff
 
