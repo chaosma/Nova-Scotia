@@ -12,7 +12,7 @@ byteorder = "1.4.3"
 ff = { version = "0.13.0", features = ["derive"]}
 hex-literal = "0.3.4"
 itertools = "0.9.0"
-nova-snark = { path = "/Users/chao/opensource/nova/nova" }
+nova-snark = { git = "https://github.com/chaosma/Nova", branch = "feature/bn256-grumpkin" }
 num-bigint = { version = "0.4", features = ["serde", "rand"] }
 num-traits = "0.2.15"
 halo2curves = { git = "https://github.com/chaosma/halo2curves", branch = "feature/curve-grumpkin" }

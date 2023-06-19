@@ -36,7 +36,7 @@ pub fn generate_witness_from_bin<Fr: PrimeField>(
         print!("stdout: {}", str::from_utf8(&output.stdout).unwrap());
         print!("stderr: {}", str::from_utf8(&output.stderr).unwrap());
     }
-    //let _ = fs::remove_file(witness_generator_input);
+    let _ = fs::remove_file(witness_generator_input);
     load_witness_from_file(witness_output)
 }
 
